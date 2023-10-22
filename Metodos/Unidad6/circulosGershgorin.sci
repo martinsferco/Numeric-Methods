@@ -8,7 +8,7 @@ function circ(r, x, y)
 endfunction
 
 
-function circulosGergoshin(A)
+function circulosGershgorin(A)
 
   [n, m] = size(A);
 
@@ -33,12 +33,13 @@ function circulosGergoshin(A)
   xgrid;
 
   for i = [1 : n]
-      circ =(radios(i), centros(i), 0)
+      circ(radios(i), centros(i), 0)
   end
 
 endfunction
 
-A = [1 0 0 ; -1 0 1 ; -1 -1 2]
+A = [3 2 1 ; -1 0 1 ; -1 -1 2]
 B = A'
 
-circulosGergoshin(A)
+circulosGershgorin(A)
+circulosGershgorin(B)
