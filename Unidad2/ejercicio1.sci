@@ -24,7 +24,7 @@ function r = cuadratic_roots(p)
     
       r(2) = (2 * c) / (-b - sqrt(discr));
 
-    else // b == 0 - Usamos el calculo normal
+    else // b == 0
 
       r(1) = (-sqrt(discr)) / (2 * a)
 
@@ -46,12 +46,13 @@ function r = cuadratic_roots(p)
 
     r(2) = (-b-+ sqrt(discr)) / (2 * a);
 
+
   end
 
 endfunction
 
 
-e = 0.0001 // Definimos el epsilon deseado
+e = 0.0001
 
 p = poly([-e, 1/e, e],"x","coeff"); // Definimos el polinomio deseado
 

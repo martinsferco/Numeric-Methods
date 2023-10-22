@@ -28,11 +28,11 @@ function f = fact(n)
 
   if n == 0 then
     
-    f = 1;  // Caso base
+    f = 1;
 
   else
 
-    f = n * fact(n - 1); // Caso recursivo
+    f = n * fact(n - 1);
 
   end
 
@@ -45,13 +45,12 @@ function pol = taylor(fun, n, v)
   h = 0.0001;
 
   
-  x = poly([0,1], "x", "coeff"); // X como un polinomio
-  pol = poly([0], "x", "coeff"); // Polinomio de Taylor nulo
+  x = poly([0,1], "x", "coeff");
+  pol = poly([0], "x", "coeff");
 
 
   for i = [0 : 1 : n] 
 
-    // Le sumamos un nuevo termino al polinomio de Taylor
     pol = pol + dfa(fun, v, h, i) * (x - v) ** i / fact(i);  
 
   end

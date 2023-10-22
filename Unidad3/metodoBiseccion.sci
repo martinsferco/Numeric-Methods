@@ -4,7 +4,7 @@ clear // Libera la memoria
 
 
 
-
+//todo MEJORAR CON SELECTOR
 function raiz = metodo_biseccion(fun, a, b, tolerancia, maxIteraciones)
 
   deff("y = f(x)", "y=" + fun);  // Definimos la funcion
@@ -43,7 +43,7 @@ function raiz = metodo_biseccion(fun, a, b, tolerancia, maxIteraciones)
 
     numIter = 0; // Numero de iteraciones
 
-    while abs(raiz) > tolerancia && numIter < maxIteraciones
+    while b - raiz > tolerancia && numIter < maxIteraciones
       
       numIter = numIter + 1;
 
@@ -53,18 +53,20 @@ function raiz = metodo_biseccion(fun, a, b, tolerancia, maxIteraciones)
 
         return;
         
-      else if f(b) * f(raiz) < 0 // Nos quedamos con el subintervalo derecho
+      else if f(b) * f(raiz) < 0
         
         a = raiz;
       
-      else b = raiz; // Nos quedamos con el subintervalo izquierdo
+      else b = raiz;
 
       end
+
 
       raiz = (a + b) / 2; 
 
     end
 
   end
+
 
 endfunction

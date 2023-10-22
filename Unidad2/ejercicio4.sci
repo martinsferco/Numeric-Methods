@@ -3,18 +3,19 @@ clear // Limpia la memoria
 
 function d = derivar_cociente_incremental(fun, v, h, n)
 
-  if (n == 0) then
+
+  if (n == 1) then
 
     deff("y = f(x)", "y=" + fun); // Definimos la funcion
 
-    d = f(v); // Devolvemos su valor en dicho punto 
+    d = (f(v + h) - f(v)) / h;
 
   else
     
     d1 = derivar_cociente_incremental(fun, v + h, h, n - 1);
     d2 = derivar_cociente_incremental(fun, v, h, n - 1);
 
-    d = (d1 - d2) / h; // Calculamos el cociente incremental
+    d = (d1 - d2) / h;
 
   end
 

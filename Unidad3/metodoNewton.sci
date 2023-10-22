@@ -22,7 +22,7 @@ function salida = newton(fun, x0, tolerancia, maxIters)
   end
 
   // Vemos el motivo de corte
-  if abs(x1) > tolerancia then disp("Se alcanzo el maximo de iteraciones");
+  if abs(x1 - x0) > tolerancia then disp("Se alcanzo el maximo de iteraciones");
 
   end
 
