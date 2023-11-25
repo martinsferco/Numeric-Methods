@@ -18,7 +18,7 @@ function pol = interpolacionDiferenciasDivididas(x,y)
 
 endfunction
 
-
+// Funcion que calcula la table de diferencias divididas.
 function div = calcularDiferenciasDivididas(x,y)
 
   n = length(x); // Cantidad de puntos que tenemos

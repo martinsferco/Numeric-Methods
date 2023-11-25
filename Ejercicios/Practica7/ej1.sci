@@ -1,8 +1,10 @@
 clc;
 clear;
 
-exec("../../Metodos/Unidad7/lagrance.sci")
-exec("../../Metodos/Unidad7/diferenciasDivididas.sci")
+//exec("../../Metodos/Unidad7/lagrance.sci")
+//exec("../../Metodos/Unidad7/diferenciasDivididas.sci")
+exec("D:\marti\Documents\Numeric-Methods\Metodos\Unidad7\lagrance.sci");
+exec("D:\marti\Documents\Numeric-Methods\Metodos\Unidad7\diferenciasDivididas.sci");
 
 // Dados los siguientes datos para la funcion exponencial
 x = [0, 0.2, 0.4, 0.6]

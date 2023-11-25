@@ -1,13 +1,15 @@
 clc;
 clear;
 
-exec("../../Metodos/Unidad7/diferenciasDivididas.sci");
-exec("../../Metodos/Unidad7/chebyshev.sci");
+//exec("../../Metodos/Unidad7/diferenciasDivididas.sci");
+//exec("../../Metodos/Unidad7/chebyshev.sci");
+exec("D:\marti\Documents\Numeric-Methods\Metodos\Unidad7\diferenciasDivididas.sci");
+exec("D:\marti\Documents\Numeric-Methods\Metodos\Unidad7\chebyshev.sci");
 
 
-function x = particionar(inicio,fin,n) 
+function x = particionar(inicio,fin,n) // Nos devuelve una particion regular de un intervalo
 
-  l = (fin - inicio);
+  l = (fin - inicio) / n;
 
   for i = [0:n];
 
@@ -18,19 +20,23 @@ function x = particionar(inicio,fin,n)
 endfunction
 
 
-
 inicio = -5;
 fin = 5;
 
 deff("y = f(x)", "y = 1 / (1 + x**2)");
 
-
 for n = [2,4,6,10,14]
 
   x = particionar(inicio,fin,n);
-  y = f(x);
-
+  
+  for i = [1:length(x)]
+    y(i) = f(x(i));
+  end
+  
   p(n) = interpolacionDiferenciasDivididas(x,y);
+
+  phi(n) = poly(x, "x", "roots"); // Definimios las Phi
+
 
 end
 
@@ -43,24 +49,34 @@ for i = [1:length(X)]
 end
 
 // Calculamos las imagenes de nuestros polinomios de interpolacion
-fp2 = horner(p(2), X);
-fp4 = horner(p(4), X);
-fp6 = horner(p(6), X);
-fp10 = horner(p(10), X);
-fp14 = horner(p(14), X);
 
 // Calculamos los errores de interpolacion
-error2 = fy' - fp2;
-error4 = fy' - fp4;
-error6 = fy' - fp6;
-error10 = fy' - fp10;
-error14 = fy' - fp14;
+fy' - horner(p(2), X)
+fy' - horner(p(4), X)
+fy' - horner(p(6), X)
+fy' - horner(p(10), X)
+fy' - horner(p(14), X)
 
-// Ploteamos los resultados
-plot(X, error2, "red");
-plot(X, error4, "blue");
-plot(X, error6, "green");
-plot(X, error10, "yellow");
-plot(X, error14, "orange");
+
+a = gca();
+a.x_location = "origin";
+a.y_location = "origin";
+
+// Ploteamos los errores
+subplot(1,2,1);
+plot(X, fy' - horner(p(2), X), "red");
+plot(X, fy' - horner(p(4), X), "blue");
+plot(X, fy' - horner(p(6), X), "green");
+plot(X, fy' - horner(p(10), X), "cyan");
+plot(X, fy' - horner(p(14), X), "black");
+
+
+// Ploteamos las funciones Phi
+subplot(1,2,2);
+plot(X, horner(phi(2), X), "red");
+plot(X, horner(phi(4), X), "blue");
+plot(X, horner(phi(6), X), "green");
+plot(X, horner(phi(10), X), "cyan");
+plot(X, horner(phi(14), X), "black");
 
 

@@ -1,6 +1,6 @@
 function [S,P,L,U] = eliminacionGaussCompleta(A, B)
     
-    [nA,mA] = size(A)
+    [nA,mA] = size(A);
     [nB, mB] = size(B);
 
     if nA<>mA then
@@ -73,15 +73,4 @@ function [S,P,L,U] = eliminacionGaussCompleta(A, B)
 
 
 endfunction
-
-
-// Ejemplo de aplicación
-A = [1 2 -2 1; 4 5 -7 6; 5 25 -15 -3; 6 -12 -6 22]
-B = eye(4,4);
-
-[S,P,L,U] = eliminacionGaussCompleta(A,B)
-disp(S)
-disp(P)
-disp(L)
-disp(U)
 

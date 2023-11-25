@@ -1,8 +1,8 @@
-function int = metodoTrapecio(fun, a, b)
+function integral = metodoTrapecio(fun, a, b)
   
-  // Verificamos que el intervalo sea correcto
+  // Verificamos que el integralervalo sea correcto
   if (b < a) then
-    error("metodoTrapecio: Intervalo incorrecto");
+    error("metodoTrapecio: integralervalo incorrecto");
     abort;
   end
   
@@ -10,16 +10,16 @@ function int = metodoTrapecio(fun, a, b)
 
   h = b - a;
 
-  int = (h / 2) * (f(a) + f(b));
+  integral = (h / 2) * (f(a) + f(b));
 
 endfunction
 
 
-function int = metodoTrapecioCompuesto(fun, a, b, n)
+function integral = metodoTrapecioCompuesto(fun, a, b, n)
 
-  // Verificamos que el intervalo sea correcto
+  // Verificamos que el integralervalo sea correcto
   if (b < a) then
-    error("metodoTrapecioCompuesto: Intervalo incorrecto");
+    error("metodoTrapecioCompuesto: integralervalo incorrecto");
     abort;
   end
 
@@ -33,7 +33,7 @@ function int = metodoTrapecioCompuesto(fun, a, b, n)
 
   h = (b - a) / n;
 
-  int = 0;
+  integral = 0;
 
   xj = a;
 
@@ -41,11 +41,11 @@ function int = metodoTrapecioCompuesto(fun, a, b, n)
 
     if j == 0 || j == n then
 
-      int = int + 1/2 * f(xj);
+      integral = integral + 1/2 * f(xj);
     
     else
 
-      int = int + f(xj);
+      integral = integral + f(xj);
     
     end
     
@@ -53,6 +53,6 @@ function int = metodoTrapecioCompuesto(fun, a, b, n)
   
   end
 
-  int = h * int;
+  integral = h * integral;
 
 endfunction

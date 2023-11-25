@@ -2,11 +2,11 @@ function [Q,R] = factorizacionQR(A)
     
     [m,n] = size(A);
     
-    if  m < n then
-        error("factorizacionQR - Hay vectores linealmente dependientes")
-        abort;
+
+    if rank(A) <> n  then
+        error("factorizacionQR - El rango de la matriz no es n");
     end
-    
+
     Q = zeros(m,n);
     R = zeros(n,n);
     
@@ -22,6 +22,9 @@ function [Q,R] = factorizacionQR(A)
         end
         
         Q(1:m, k) = vectorProyectado / norm(vectorProyectado);
+
+        R(k,k) = norm(vectorProyectado);
+
         
     end
     

@@ -1,8 +1,11 @@
 clc;
 clear;
 
-exec("../../Metodos/Unidad8/metodoSimpson.sci");
-exec("../../Metodos/Unidad8/metodoTrapecio.sci");
+//exec("../../Metodos/Unidad8/metodoSimpson.sci");
+//exec("../../Metodos/Unidad8/metodoTrapecio.sci");
+exec("D:\marti\Documents\Numeric-Methods\Metodos\Unidad8\metodoSimpson.sci");
+exec("D:\marti\Documents\Numeric-Methods\Metodos\Unidad8\metodoTrapecio.sci");
+
 
 trap_a = metodoTrapecio("log(x)", 1, 2);
 trap_b = metodoTrapecio("x^(1/3)", 0, 0.1);
@@ -39,8 +42,10 @@ intA = intg(1, 2, fa);
 intB = intg(0, 0.1, fb); 
 intC = intg(0, %pi/3, fc);
 
-disp("A: " + string(intA));
-disp("B: " + string(intB));
-disp("C: " + string(intC));
+disp("Error A Trapecio: " + string(abs(intA - trap_a)));
+disp("Error B Trapecio: " + string(abs(intB - trap_b)));
+disp("Error C Trapecio: " + string(abs(intC - trap_c)));
 
-// Acotar errores
+disp("Error A Simpson: " + string(abs(intA - simp_a)));
+disp("Error B Simpson: " + string(abs(intB - simp_b)));
+disp("Error C Simpson: " + string(abs(intC - simp_c)));

@@ -1,8 +1,8 @@
-function int = reglaSimpson(fun, a, b)
+function integral = reglaSimpson(fun, a, b)
   
-  // Verificamos que el intervalo sea correcto
+  // Verificamos que el integralervalo sea correcto
   if (b < a) then
-    error("metodoTrapecio: Intervalo incorrecto");
+    error("metodoTrapecio: integralervalo incorrecto");
     abort;
   end
   
@@ -10,15 +10,15 @@ function int = reglaSimpson(fun, a, b)
 
   h = (b - a) / 2;
 
-  int = (h / 3) * (f(a) + 4 * f(a + h) + f(b));
+  integral = (h / 3) * (f(a) + 4 * f(a + h) + f(b));
 endfunction
 
 
-function int = reglaSimpsonCompuesta(fun, a, b, n)
+function integral = reglaSimpsonCompuesta(fun, a, b, n)
 
-  // Verificamos que el intervalo sea correcto
+  // Verificamos que el integralervalo sea correcto
   if (b < a) then
-    error("metodoTrapecioCompuesto: Intervalo incorrecto");
+    error("metodoTrapecioCompuesto: integralervalo incorrecto");
     abort;
   end
 
@@ -28,7 +28,7 @@ function int = reglaSimpsonCompuesta(fun, a, b, n)
     abort;
   end
 
-  if (pmodulo(n,2) == 1) then
+  if (modulo(n,2) == 1) then
     error("metodoTrapecioCompuesto: el valor n tiene que ser par");
     abort;
   end
@@ -37,7 +37,7 @@ function int = reglaSimpsonCompuesta(fun, a, b, n)
 
   h = (b - a) / n;
 
-  int = 0;
+  integral = 0;
 
   xj = a;
 
@@ -45,15 +45,15 @@ function int = reglaSimpsonCompuesta(fun, a, b, n)
 
     if j == 0 || j == n then
 
-      int = int + f(xj);
+      integral = integral + f(xj);
     
-    elseif (pmodulo(j,2) == 1) then
+    elseif (modulo(j,2) == 1) then
 
-      int = int + 4 * f(xj);
+      integral = integral + 4 * f(xj);
     
     else
 
-      int = int + 2 * f(xj);
+      integral = integral + 2 * f(xj);
 
     end
 
@@ -61,6 +61,6 @@ function int = reglaSimpsonCompuesta(fun, a, b, n)
 
   end
 
-  int = (h / 3) * int;
+  integral = (h / 3) * integral;
 
 endfunction

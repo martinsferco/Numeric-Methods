@@ -12,7 +12,7 @@ function pol = polinomioInterpoladorLagrange(x,y)
 
 endfunction
 
-
+// Funcion que calcula el Lk correspondiente
 function pol = Lk(x,k) 
 
   xk = x(k + 1);

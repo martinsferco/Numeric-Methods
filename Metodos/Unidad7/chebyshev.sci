@@ -1,5 +1,5 @@
 // Devuelve las raices del polinomio de chebyshev de orden n
-clc;
+// en el intervalo [-1,1]
 function r = chebyshev(n)
     coef = %pi / (2 * n);
     for k = 0 : n - 1
@@ -9,7 +9,8 @@ function r = chebyshev(n)
     end
 endfunction
 
-
+// Devuelve las raices del polinomio de chebyshev de orden n
+// en un intervalo generico [a,b]
 function r_ab = chebyshev_ab(n, a, b)
     r = chebyshev(n);
     
