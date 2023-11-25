@@ -4,12 +4,12 @@ function [S,P,L,U] = eliminacionGaussCompleta(A, B)
     [nB, mB] = size(B);
 
     if nA<>mA then
-        error('factorizacionLU - La matriz A debe ser cuadrada');
+        error('eliminacionGaussCompleta - La matriz A debe ser cuadrada');
         abort;
     end;
 
      if mA <> nB then
-        error("eliminacionGaussSinPP - Dimensiones incompatibles entre A y b");
+        error("eliminacionGaussCompleta - Dimensiones incompatibles entre A y b");
         abort;
     end;
     
