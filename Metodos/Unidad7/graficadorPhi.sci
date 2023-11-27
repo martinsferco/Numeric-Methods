@@ -1,6 +1,7 @@
-// Grafica y nos devuelve la funcion Phin(x) = (x - x0)...(x - xn)
+// Grafica y nos devuelve las coordenadas x e y del maximo de abs(Phin(x)) = (x - x0)...(x - xn) 
+// en el intervalo [x0, xn].
 // Consideramos que los nodos de interpolacion estan bien ordenados.
-function [x_maximo, y_maximo] = graficarPhi(nodosInterpolacion)
+function [x_maximo, y_maximo] = graficarAbsPhi(nodosInterpolacion)
    
     l = length(nodosInterpolacion); 
    
@@ -19,11 +20,11 @@ function [x_maximo, y_maximo] = graficarPhi(nodosInterpolacion)
     a.x_location = "origin";
     a.y_location = "origin";    
     
-    imagenes = phi(rango);
+    imagenes = abs(phi(rango));
     
     plot(rango, imagenes);
     
-    [maximo, indice] = max(abs(imagenes));
+    [maximo, indice] = max(imagenes);
     
     x_maximo = rango(indice);
     y_maximo = maximo;
