@@ -1,4 +1,4 @@
-function pol = interpolacionDiferenciasDivididas(x,y)
+function [pol, div] = interpolacionDiferenciasDivididas(x,y)
 
   div = calcularDiferenciasDivididas(x,y); // Calculamos las diferencias divididas
 
@@ -15,6 +15,8 @@ function pol = interpolacionDiferenciasDivididas(x,y)
   end
 
   pol = div(1, 1:n) * productos';
+  
+  div = div(1, 1:n); // Nos interesa la primer fila para poder evaluar el polinomio 
 
 endfunction
 
