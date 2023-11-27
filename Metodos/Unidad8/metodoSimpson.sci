@@ -1,8 +1,8 @@
 function integral = reglaSimpson(fun, a, b)
   
-  // Verificamos que el integralervalo sea correcto
+  // Verificamos que el intervalo sea correcto
   if (b < a) then
-    error("metodoTrapecio: integralervalo incorrecto");
+    error("metodoTrapecio: intervalo incorrecto");
     abort;
   end
   
@@ -14,11 +14,13 @@ function integral = reglaSimpson(fun, a, b)
 endfunction
 
 
+
+
 function integral = reglaSimpsonCompuesta(fun, a, b, n)
 
-  // Verificamos que el integralervalo sea correcto
+  // Verificamos que el intervalo sea correcto
   if (b < a) then
-    error("metodoTrapecioCompuesto: integralervalo incorrecto");
+    error("metodoTrapecioCompuesto: intervalo incorrecto");
     abort;
   end
 
