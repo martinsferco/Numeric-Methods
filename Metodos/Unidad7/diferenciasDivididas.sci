@@ -20,6 +20,31 @@ function [pol, div] = interpolacionDiferenciasDivididas(x,y)
 
 endfunction
 
+
+// Calcula el polinomio interpolador ya de manera encajada
+function pol = interpolacionDiferenciasDivididasEncajado(x,y)
+
+  div = calcularDiferenciasDivididas(x,y); // Calculamos las diferencias divididas
+
+  n = length(x); // Cantidad de puntos que tenemos
+  
+  div = div(1,1:n); // Nos quedamos solamente con la primera fila
+
+  xvar = poly([0 1], "x","coeff"); 
+  
+  pol = div(n);
+
+  for i = [n - 1: -1: 1]
+    
+    pol = div(i) + (xvar - x(i)) * pol;
+
+  end
+endfunction
+
+
+
+
+
 // Funcion que calcula la table de diferencias divididas.
 function div = calcularDiferenciasDivididas(x,y)
 
@@ -48,24 +73,3 @@ function [div,calc] = calcularDiferenciasDivididasRecursiva(div,calc,i,k,x)
   end
 
 endfunction
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
